@@ -78,9 +78,11 @@ limit 5;
 #
 # Note: There shouldn't be a table name order, since order is reserved from the ORDER BY clause.
 #     You have to use backticks to escape the order table name.
+use bank;
 select distinct
     k_symbol
-from `order`;
+from `order`
+where k_symbol <> "" ;
 
 # Query 9
 # In the order table, what are the order_ids of the client with the account_id 34?

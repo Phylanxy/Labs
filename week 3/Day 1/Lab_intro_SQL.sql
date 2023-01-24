@@ -9,9 +9,12 @@ select title from film;
 # Note that we are not asking you to obtain the language per each film,
 # but this is a good time to think about how you might get that information in the future.
 
-select distinct language_id from film as languages;
-TYPEOF JOIN table_b AS tb
-ON languages = tb.col_y
+select distinct
+    name
+from
+    film
+JOIN
+        language ON film.language_id = language.language_id;
 
 
 # 5.1 Find out how many stores does the company have?
