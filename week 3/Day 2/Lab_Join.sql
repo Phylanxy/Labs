@@ -27,3 +27,49 @@ inner join film_category fc on category.category_id = fc.category_id
 group by fc.category_id
 order by `name`;
 
+# Display the first and last names, as well as the address, of each staff member.
+select distinct staff_id, first_name, last_name, address, district, city, postal_code
+from staff
+inner join address a on staff.address_id = a.address_id
+inner join city c on a.city_id = c.city_id;
+
+# get films titles where the film language is either English or italian,
+# and whose titles starts with letter "M" , sorted by title descending.
+select
+    title, l.name as language
+from
+    film
+inner join language l on film.language_id = l.language_id
+where l.name = "English" and title regexp "^M.*"
+    or l.name = "Italian" and title regexp "^M.*"
+order by title;
+
+# Display the total amount rung up by each staff member in August of 2005.
+select distinct
+    first_name, last_name, sum(p.amount)
+from
+    staff
+inner join
+        payment p on staff.staff_id = p.staff_id
+where
+    month(p.payment_date) = 8
+group by
+    first_name, last_name
+order by
+    sum(p.amount)
+desc;
+
+# List each film and the number of actors who are listed for that film.
+select distinct
+    title, count(actor_id)
+from
+    film_actor
+inner join film f
+using(film_id)
+group by
+    title
+order by
+    count(actor_id)
+desc;
+
+
