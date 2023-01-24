@@ -72,4 +72,36 @@ order by
     count(actor_id)
 desc;
 
+# Using the tables payment and customer and the JOIN command, list the total paid by each customer.
+# List the customers alphabetically by last name.
+select
+    last_name, sum(amount)
+from
+    customer
+join
+    payment p
+using(customer_id)
+group by
+    last_name;
 
+# Write sql statement to check if you can find any actor who never particiapted in any film.
+select distinct
+    actor_id
+from
+    film_actor
+left outer join actor a
+using(actor_id)
+where actor_id = NULL
+order by
+    actor_id;
+
+# get the addresses that have NO customers, and end with the letter "e"
+select
+    address, customer_id
+from
+    address
+left outer join customer c
+using(address_id)
+where address regexp "e$" and c.customer_id is null;
+
+# Optional: what is the most rented film?
