@@ -105,3 +105,17 @@ using(address_id)
 where address regexp "e$" and c.customer_id is null;
 
 # Optional: what is the most rented film?
+select
+    title, count(film_id)
+from
+    film
+left join
+    inventory
+using(film_id)
+right join rental r
+using(inventory_id)
+group by
+    film_id
+order by
+    count(film_id)
+desc limit 1
