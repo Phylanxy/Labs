@@ -34,14 +34,14 @@ where address_id in (
                                               from country
                                               where country = "Canada")
                         )
-    )
+    );
 
 # with joins:
 select email, first_name, last_name from customer
 join address a on customer.address_id = a.address_id
     join city c on a.city_id = c.city_id
         join country c2 on c2.country_id = c.country_id
-where country = "Canada"
+where country = "Canada";
 
 # Which are films starred by the most prolific actor? Most prolific actor is defined as the actor that has acted in the most number of films.
 # First you will have to find the most prolific actor and then use that actor_id to find the different films that he/she starred.
@@ -60,4 +60,4 @@ where actor_id in (
         where 
 
 
-    )
+    );
