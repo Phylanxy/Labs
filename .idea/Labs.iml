@@ -5,6 +5,7 @@
     <orderEntry type="jdk" jdkName="C:\ProgramData\Anaconda3" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="IronLeo" />
+    <orderEntry type="module" module-name="drop_into_berlin" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="renderExternalDocumentation" value="true" />
