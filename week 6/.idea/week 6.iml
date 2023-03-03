@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Labs" />
     <orderEntry type="module" module-name="IronLeo" />
+    <orderEntry type="module" module-name="drop_into_berlin" />
   </component>
 </module>
